@@ -15,9 +15,10 @@ from the wallet you download from your Oracle ATP admin panel.
 
 that directory must not be uploaded to git, for this:
 
-- encript in dev with netlify-plugin-encrypted-files: `scripts/encrypt-networkadmin.sh`
-- decrypt in dev `scripts/decrypt-networkadmin.sh`
-	- in prod is automaticllly decripted by the plugin, using NETLIFY_ENCRYPT_KEY env var from the netlify UI
+- encript in dev with netlify-plugin-encrypted-files: `npm run precommit`
+- decrypt in dev and prod `npm run build`
+	- in prod you need to set `NETLIFY_ENCRYPT_KEY` env var from the netlify UI
+	- (setting plugin in netlify.toml failed in prod, switched to this manual and more dev consistent method)
 
 
 Also oracle-instantlclient/- needs files from instantclient basic lite, unzip and remove every file and and symlink except:
@@ -40,6 +41,8 @@ Also oracle-instantlclient/- needs files from instantclient basic lite, unzip an
 
 ## 2) in netlify UI variable, or locally .env file you need
 
+- netlify UI: Site settings > Build & deploy > Environment > Environment variables
+
 ```.env
 ORACLE_HOME=oracle-instantclient
 LD_LIBRARY_PATH=oracle-instantclient
@@ -49,6 +52,8 @@ NLS_LANG=Spanish_Spain.UTF8
 DB_USER=yourdbuser
 DB_PASSWORD=yourdbpasswd
 CONNECT_STRING=yourtnsnamesstring
+
+NETLIFY_ENCRYPT_KEY=
 ```
 
 - if error not finding libs or timezone not set, its a problem with ENV vars or not proper libs in oracleclient

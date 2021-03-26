@@ -2,5 +2,6 @@
 functions='functions'
 publish = "public/"
 
-[[plugins]]
-package = "netlify-plugin-encrypted-files"
+[context.production]
+  publish = "public/"
+  command = "npm run build"

@@ -2,10 +2,12 @@
   "name": "netlify-oracle",
   "version": "0.1.0",
   "description": "Netlify function to query Oracle database",
-  "main": "index.html",
+  "main": "public/index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "scripts/dev.sh"
+    "build": "scripts/decrypt-networkadmin.sh",
+    "dev": "scripts/dev.sh",
+    "precommit": "scripts/encrypt-networkadmin.sh",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "@drodsou",
   "license": "ISC",
