@@ -1,7 +1,7 @@
 #!/bin/bash
 
-THISFILE=`realpath "$0"`
-THISDIR=`dirname $THISFILE`
+# THISFILE=`realpath "$0"`
+# THISDIR=`dirname $THISFILE`
 
 echo "decrypting '.encrypted' into 'oracle-instantclient/network/admin'"
 
@@ -15,5 +15,5 @@ else
 fi
 
 # Run Command
-echo $password
-NETLIFY_ENCRYPT_KEY="$password" node $THISDIR/../node_modules/netlify-plugin-encrypted-files/decrypt.js $THISDIR/../oracle-instantclient/network/admin/*.*
+# echo $password
+NETLIFY_ENCRYPT_KEY="$password" node ./node_modules/netlify-plugin-encrypted-files/decrypt.js ./oracle-instantclient/network/admin/*.*

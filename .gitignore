@@ -1,3 +1,4 @@
 node_modules/
 oracle-instantclient/network/admin/
 .env
+_nogit/
