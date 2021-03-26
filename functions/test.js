@@ -6,11 +6,8 @@ exports.handler = async function (event, context) {
 		body : JSON.stringify({
 			test: "all right", 
 			src: __filename, 
-			dirs: [
-				fs.readdirSync(__dirname + '/..'),
-				fs.readdirSync(__dirname + '/../..'),
-				fs.readdirSync(__dirname + '/../../..'),
-			]
+			dirs: fs.readdirSync(event.queryStringParameters.dir||__dirname),
+			
 		},null,2)
 	}
 	
