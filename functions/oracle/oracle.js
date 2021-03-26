@@ -33,14 +33,17 @@ exports.handler = async function (event, context) {
 	 }  catch (e) {
 	 	let oracleError = e.message
 	 	let dir = 'ups'
+	 	let os = 'ups'
 	 	try {
 	 		dir = fs.readdirSync('/var/task/src/functions/oracle/instantclient')
+	 		os = fs.readFileSync('/etc/os-release',{encoding:'utf8'})
 	 	} catch (e) {}
 
 		return {
 			statusCode: 500,
 			body: JSON.stringify({
 				dir: dir,
+		 		os: os,
 				oracle_home: process.env.ORACLE_HOME,
 				ld_library_path: process.env.LD_LIBRARY_PATH,
 				error: oracleError,
