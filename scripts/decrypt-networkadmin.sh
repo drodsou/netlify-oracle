@@ -3,7 +3,7 @@
 # THISFILE=`realpath "$0"`
 # THISDIR=`dirname $THISFILE`
 
-echo "decrypting '.encrypted' into 'oracle-instantclient/network/admin'"
+echo "decrypting '.encrypted' into 'functions/oracle/instantclient/network/admin'"
 
 # get password if not in env
 if [[ -z "${NETLIFY_ENCRYPT_KEY}" ]]; then
@@ -16,4 +16,4 @@ fi
 
 # Run Command
 # echo $password
-NETLIFY_ENCRYPT_KEY="$password" node ./node_modules/netlify-plugin-encrypted-files/decrypt.js ./oracle-instantclient/network/admin/*.*
+NETLIFY_ENCRYPT_KEY="$password" node ./node_modules/netlify-plugin-encrypted-files/decrypt.js ./functions/oracle/instantclient/network/admin/*.*
