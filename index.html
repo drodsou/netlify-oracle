@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+	<h1>oracle query test</h1>
+	<div id="response">...</div>
+	<script type="module">
+		(async()=>{
+			let response="fail"
+			try {
+			 response = await (fetch('/.netlify/functions/oracleQuery').then(response => response.json()))
+			 //response = await (fetch('/.netlify/functions/queryOracle').then(response => response.json()))
+			 console.log(response)
+			} catch (e) {
+				console.log(e)
+			}
+			document.querySelector("#response").innerHTML = JSON.stringify(response);
+			
+		})();
+	</script>
+</body>
+</html>
