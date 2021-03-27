@@ -41,7 +41,7 @@ exports.handler = async function (event, context) {
  	let dir_ld, os, uname, godb, dirn = 'ups';
 
  	try {
- 		// dir_ld = fs.readdirSync(process.env.LD_LIBRARY_PATH);
+ 		dir_ld = fs.readdirSync(`${__dirname}/instantclient`);
  		os = fs.readFileSync('/etc/os-release',{encoding:'utf8'});
  	    uname = execSync('uname -r').toString();
  	    dirn = __dirname;
