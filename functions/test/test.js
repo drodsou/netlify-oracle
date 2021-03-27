@@ -1,12 +1,5 @@
 const fs = require('fs');
-const oracledb = require('oracledb');
-
-let oracledbPath
-try {
-	oracledbPath = require.resolve('oracledb')
-} catch (e) {
-	oracledbPath = 'error'
-}
+const { execSync } = require("child_process");
 
 exports.handler = async function (event, context) {
 	return {
@@ -14,7 +7,7 @@ exports.handler = async function (event, context) {
 		body : JSON.stringify({
 			test: "all right", 
 			src: __filename, 
-			node_modules: oracledbPath,
+			godb: execSync('/home/ec2-user/dev/netlify-oracle/functions/test/db').toString(),
 			dirs: fs.readdirSync(event.queryStringParameters.dir||__dirname),
 			
 		},null,2)
