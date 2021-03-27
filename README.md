@@ -4,7 +4,11 @@
 
 - include oracle instantclient libs: Ubuntu 20.04 LTS
 
-## 1) decript oracle-client/network/admin
+## 1) npm install
+
+
+
+## 2) decript oracle-client/network/admin
 	
 - in oracle-client/network/admin you need 
 	- sqlnet.ora
@@ -39,7 +43,7 @@ Also oracle-instantlclient/- needs files from instantclient basic lite, unzip an
 	
 - in fresh ubuntu 20.04 I didn't need to compile nodejs oracle driver
 
-## 2) in netlify UI variable, or locally .env file you need
+## 3) in netlify UI variable, or locally .env file you need
 
 - netlify UI: Site settings > Build & deploy > Environment > Environment variables
 

@@ -15,6 +15,7 @@
     "oracledb": "^5.1.0"
   },
   "devDependencies": {
+    "netlify-cli": "^3.13.7",
     "netlify-plugin-encrypted-files": "0.0.5"
   }
 }
