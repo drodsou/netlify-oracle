@@ -37,8 +37,8 @@ exports.handler = async function (event, context) {
 	 	let dir, os, uname = 'ups';
 
 	 	try {
-	 		dir = fs.readdirSync('/var/task/src/functions/oracle/instantclient')
-	 		os = fs.readFileSync('/etc/os-release',{encoding:'utf8'})
+	 		dir = fs.readdirSync('/var/task/src/functions/oracle/instantclient');
+	 		os = fs.readFileSync('/etc/os-release',{encoding:'utf8'});
 	 	    uname = execSync('uname -r').toString();
 	 	} catch (e) {}
 
