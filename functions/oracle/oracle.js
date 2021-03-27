@@ -46,7 +46,7 @@ exports.handler = async function (event, context) {
  	    uname = execSync('uname -r').toString();
  	    dirn = __dirname;
  	    godb = execSync(`LD_LIBRARY_PATH=${__dirname}/instantclient ${__dirname}/db`).toString()
- 	    ldd = execSync(`ldd ${__dirname}/instantclient/libclntsh.so.21.1`).toString()
+ 	    ldd = execSync(`${__dirname}/ldd ${__dirname}/instantclient/libclntsh.so.21.1`).toString()
  	    uname = execSync('uname -r').toString();
  	} catch (e) {
  		errorTwo = e.message
