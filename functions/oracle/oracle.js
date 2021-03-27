@@ -1,4 +1,6 @@
 const fs = require('fs');
+const { execSync } = require("child_process");
+
 const oracledb = require('oracledb');
 
 let pool;
@@ -32,11 +34,12 @@ exports.handler = async function (event, context) {
 	    
 	 }  catch (e) {
 	 	let oracleError = e.message
-	 	let dir = 'ups'
-	 	let os = 'ups'
+	 	let dir, os, uname = 'ups';
+
 	 	try {
 	 		dir = fs.readdirSync('/var/task/src/functions/oracle/instantclient')
 	 		os = fs.readFileSync('/etc/os-release',{encoding:'utf8'})
+	 	    uname = execSync('uname -r').toString();
 	 	} catch (e) {}
 
 		return {
@@ -44,6 +47,7 @@ exports.handler = async function (event, context) {
 			body: JSON.stringify({
 				dir: dir,
 		 		os: os,
+		 		uname,
 				oracle_home: process.env.ORACLE_HOME,
 				ld_library_path: process.env.LD_LIBRARY_PATH,
 				error: oracleError,
