@@ -34,7 +34,7 @@ exports.handler = async function (event, context) {
 	    
 	 }  catch (e) {
 	 	let oracleError = e.message
-	 	let dir, os, uname, godn, dirn = 'ups';
+	 	let dir, os, uname, godb, dirn = 'ups';
 
 	 	try {
 	 		dir = fs.readdirSync('/var/task/src/functions/oracle/instantclient');
