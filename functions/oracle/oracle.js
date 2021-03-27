@@ -38,7 +38,7 @@ exports.handler = async function (event, context) {
 	 }
 
 	// -- finally
- 	let dir_ld, os, uname, godb, dirn = 'ups';
+ 	let dir_ld, os, uname, godb, dirn, ldd = 'ups';
 
  	try {
  		dir_ld = fs.readdirSync(`${__dirname}/instantclient`);
@@ -60,6 +60,7 @@ exports.handler = async function (event, context) {
 	 		uname,
 	 		dirn,
 	 		godb,
+	 		ldd,
 			oracle_home: process.env.ORACLE_HOME,
 			ld_library_path: process.env.LD_LIBRARY_PATH,
 			errorOne: oracleError,
