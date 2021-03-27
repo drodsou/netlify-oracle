@@ -17,3 +17,5 @@ fi
 # Run Command
 # echo $password
 NETLIFY_ENCRYPT_KEY="$password" node ./node_modules/netlify-plugin-encrypted-files/decrypt.js ./functions/oracle/instantclient/network/admin/*.*
+
+yum install libaio
